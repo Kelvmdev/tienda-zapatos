@@ -1,0 +1,52 @@
+{
+  "zapatos": [
+    {
+      "slug": "nike-air-max",
+      "nombre": "Nike Air Max",
+      "marca": "Nike",
+      "precio": 440000,
+      "imagen": "https://placehold.co/600x600?text=Nike+Air+Max",
+      "descripcion": "Tenis deportivos con amortiguación de aire, ideales para correr y para el día a día.",
+      "tallas": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    {
+      "slug": "adidas-superstar",
+      "nombre": "Adidas Superstar",
+      "marca": "Adidas",
+      "precio": 380000,
+      "imagen": "https://placehold.co/600x600?text=Adidas+Superstar",
+      "descripcion": "Clásico icónico con puntera de goma, cómodo y combinable con todo.",
+      "tallas": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "slug": "puma-rs-x",
+      "nombre": "Puma RS-X",
+      "marca": "Puma",
+      "precio": 320000,
+      "imagen": "https://placehold.co/600x600?text=Puma+RS-X",
+      "descripcion": "Diseño retro-futurista con suela voluminosa y mucho estilo urbano.",
+      "tallas": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    }
+  ]
+}
