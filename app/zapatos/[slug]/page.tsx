@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
@@ -13,6 +14,26 @@ type Zapato = {
   tallas: number[];
 };
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const ruta = path.join(process.cwd(), "content", "data.json");
+  const data = JSON.parse(fs.readFileSync(ruta, "utf-8")) as { zapatos: Zapato[] };
+  const zapato = data.zapatos.find((z) => z.slug === slug);
+  if (!zapato) return { title: "Zapato no encontrado" };
+  return {
+    title: zapato.nombre,
+    description: zapato.descripcion,
+    openGraph: {
+      title: zapato.nombre,
+      description: zapato.descripcion,
+      images: [zapato.imagen],
+    },
+  };
+}
 export default async function ZapatoPage({
   params,
 }: {
