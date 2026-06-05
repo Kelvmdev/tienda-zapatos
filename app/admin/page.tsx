@@ -65,13 +65,17 @@ async function logout() {
 async function guardar(formData: FormData) {
   "use server";
   const data = leerData();
-  data.zapatos = data.zapatos.map((z) => ({
-    ...z,
-    nombre: String(formData.get(`nombre-${z.slug}`)),
-    marca: String(formData.get(`marca-${z.slug}`)),
-    precio: Number(formData.get(`precio-${z.slug}`)),
-    descripcion: String(formData.get(`descripcion-${z.slug}`)),
-  }));
+  data.zapatos = data.zapatos.map((z) => {
+    const nombre = formData.get(`nombre-${z.slug}`);
+    if (nombre === null) return z; // no vino en el formulario → no lo toques
+    return {
+      ...z,
+      nombre: String(nombre),
+      marca: String(formData.get(`marca-${z.slug}`)),
+      precio: Number(formData.get(`precio-${z.slug}`)),
+      descripcion: String(formData.get(`descripcion-${z.slug}`)),
+    };
+  });
   await commitData(JSON.stringify(data, null, 2));
   revalidatePath("/");
   revalidatePath("/admin");
