@@ -5,7 +5,7 @@
       "nombre": "Nike Air Max",
       "marca": "Nike",
       "precio": 440002,
-      "imagen": "https://res.cloudinary.com/dw26ujhoo/image/upload/v1780682602/t1poqxve9hyt4pdredbr.png",
+      "imagen": "https://res.cloudinary.com/dw26ujhoo/image/upload/v1780683629/aqp7fses1cqhxz0nru30.png",
       "descripcion": "Tenis deportivos con amortiguación de aire, ideales para correr y para el día a día.",
       "tallas": [
         38,
@@ -21,7 +21,7 @@
       "nombre": "Adidas Superstar",
       "marca": "Adidas",
       "precio": 380000,
-      "imagen": "https://placehold.co/600x600?text=Adidas+Superstar",
+      "imagen": "https://res.cloudinary.com/dw26ujhoo/image/upload/v1780683635/pv0yuugg3t0eh6zc0cag.png",
       "descripcion": "Clásico icónico con puntera de goma, cómodo y combinable con todo.",
       "tallas": [
         37,
@@ -37,7 +37,7 @@
       "nombre": "Puma RS-X",
       "marca": "Puma",
       "precio": 320000,
-      "imagen": "https://placehold.co/600x600?text=Puma+RS-X",
+      "imagen": "https://res.cloudinary.com/dw26ujhoo/image/upload/v1780683646/gg4ti2bzwccaqckpvnfq.png",
       "descripcion": "Diseño retro-futurista con suela voluminosa y mucho estilo urbano.",
       "tallas": [
         39,
@@ -46,6 +46,21 @@
         42,
         43,
         44
+      ]
+    },
+    {
+      "slug": "zapato-1780677628586",
+      "nombre": "prueba",
+      "marca": "prueba",
+      "precio": 50000,
+      "imagen": "https://placehold.co/600x600?text=Nuevo",
+      "descripcion": "prueba",
+      "tallas": [
+        38,
+        39,
+        40,
+        41,
+        42
       ]
     }
   ]
