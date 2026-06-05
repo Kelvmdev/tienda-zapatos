@@ -21,6 +21,50 @@ async function logout() {
   redirect("/admin/login");
 }
 
+async function commitData(contenido: string) {
+  const owner = process.env.GITHUB_OWNER;
+  const repo = process.env.GITHUB_REPO;
+  const branch = process.env.GITHUB_BRANCH;
+  const token = process.env.GITHUB_TOKEN;
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/content/data.json`;
+
+  // 1) Traer el "sha" (huella) de la versión actual
+  const getRes = await fetch(`${apiUrl}?ref=${branch}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "tienda-zapatos-cms",
+    },
+    cache: "no-store",
+  });
+  if (!getRes.ok) {
+    throw new Error(`No pude leer el archivo de GitHub: ${getRes.status}`);
+  }
+  const archivo = await getRes.json();
+  const sha = archivo.sha;
+
+  // 2) Commitear la nueva versión (en base64)
+  const putRes = await fetch(apiUrl, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "tienda-zapatos-cms",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: "Actualizar catálogo desde el panel",
+      content: Buffer.from(contenido, "utf-8").toString("base64"),
+      sha,
+      branch,
+    }),
+  });
+  if (!putRes.ok) {
+    const txt = await putRes.text();
+    throw new Error(`GitHub rechazó el guardado: ${putRes.status} ${txt}`);
+  }
+}
+
 async function guardar(formData: FormData) {
   "use server";
   const ruta = path.join(process.cwd(), "content", "data.json");
@@ -34,7 +78,8 @@ async function guardar(formData: FormData) {
     descripcion: String(formData.get(`descripcion-${z.slug}`)),
   }));
 
-  fs.writeFileSync(ruta, JSON.stringify(data, null, 2), "utf-8");
+  await commitData(JSON.stringify(data, null, 2));
+
   revalidatePath("/");
   revalidatePath("/admin");
 }
