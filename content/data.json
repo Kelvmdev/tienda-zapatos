@@ -33,6 +33,22 @@
       ]
     },
     {
+      "slug": "puma-rs-x",
+      "nombre": "Puma RS-X",
+      "marca": "Puma",
+      "precio": 320000,
+      "imagen": "https://placehold.co/600x600?text=Puma+RS-X",
+      "descripcion": "Diseño retro-futurista con suela voluminosa y mucho estilo urbano.",
+      "tallas": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
       "slug": "zapato-1780677628586",
       "nombre": "Nuevo zapato",
       "marca": "Marca",
