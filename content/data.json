@@ -4,7 +4,7 @@
       "slug": "nike-air-max",
       "nombre": "Nike Air Max",
       "marca": "Nike",
-      "precio": 40000,
+      "precio": 440002,
       "imagen": "https://placehold.co/600x600?text=Nike+Air+Max",
       "descripcion": "Tenis deportivos con amortiguación de aire, ideales para correr y para el día a día.",
       "tallas": [
@@ -34,11 +34,11 @@
     },
     {
       "slug": "puma-rs-x",
-      "nombre": "null",
-      "marca": "null",
-      "precio": 0,
+      "nombre": "Puma RS-X",
+      "marca": "Puma",
+      "precio": 320000,
       "imagen": "https://placehold.co/600x600?text=Puma+RS-X",
-      "descripcion": "null",
+      "descripcion": "Diseño retro-futurista con suela voluminosa y mucho estilo urbano.",
       "tallas": [
         39,
         40,
