@@ -47,21 +47,6 @@
         43,
         44
       ]
-    },
-    {
-      "slug": "zapato-1780677628586",
-      "nombre": "prueba",
-      "marca": "prueba",
-      "precio": 50000,
-      "imagen": "https://placehold.co/600x600?text=Nuevo",
-      "descripcion": "prueba",
-      "tallas": [
-        38,
-        39,
-        40,
-        41,
-        42
-      ]
     }
   ]
 }
