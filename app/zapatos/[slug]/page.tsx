@@ -34,6 +34,7 @@ export async function generateMetadata({
     },
   };
 }
+
 export default async function ZapatoPage({
   params,
 }: {
@@ -51,8 +52,29 @@ export default async function ZapatoPage({
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: zapato.nombre,
+    description: zapato.descripcion,
+    image: zapato.imagen,
+    brand: { "@type": "Brand", name: zapato.marca },
+    offers: {
+      "@type": "Offer",
+      price: zapato.precio,
+      priceCurrency: "COP",
+      availability: "https://schema.org/InStock",
+      url: `https://tienda-zapatos-gamma.vercel.app/zapatos/${zapato.slug}`,
+    },
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mx-auto max-w-4xl">
         <Link href="/" className="text-emerald-400 hover:underline">← Volver al catálogo</Link>
 
