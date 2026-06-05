@@ -3,6 +3,7 @@ import path from "node:path";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import SubirImagen from "./SubirImagen";
 
 type Zapato = {
   slug: string;
@@ -67,13 +68,14 @@ async function guardar(formData: FormData) {
   const data = leerData();
   data.zapatos = data.zapatos.map((z) => {
     const nombre = formData.get(`nombre-${z.slug}`);
-    if (nombre === null) return z; // no vino en el formulario → no lo toques
+    if (nombre === null) return z;
     return {
       ...z,
       nombre: String(nombre),
       marca: String(formData.get(`marca-${z.slug}`)),
       precio: Number(formData.get(`precio-${z.slug}`)),
       descripcion: String(formData.get(`descripcion-${z.slug}`)),
+      imagen: String(formData.get(`imagen-${z.slug}`)),
     };
   });
   await commitData(JSON.stringify(data, null, 2));
@@ -131,6 +133,8 @@ export default async function AdminPage() {
                 <button type="submit" formAction={borrar.bind(null, z.slug)}
                   className="text-red-400 hover:text-red-300 text-sm">Borrar</button>
               </div>
+
+              <SubirImagen slug={z.slug} imagenActual={z.imagen} />
 
               <label className="text-sm text-neutral-400">Nombre
                 <input name={`nombre-${z.slug}`} defaultValue={z.nombre}
