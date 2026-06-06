@@ -47,6 +47,36 @@
         43,
         44
       ]
+    },
+    {
+      "slug": "zapato-1780705142686",
+      "nombre": "fghafdfh",
+      "marca": "dfhdfshsh",
+      "precio": 399999,
+      "imagen": "https://placehold.co/600x600?text=Nuevo",
+      "descripcion": "gasdhah",
+      "tallas": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "slug": "zapato-1780705144654",
+      "nombre": "4rthh",
+      "marca": "rtyryeh",
+      "precio": 300000,
+      "imagen": "https://placehold.co/600x600?text=Nuevo",
+      "descripcion": "dfgsdfhs",
+      "tallas": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
     }
   ]
 }
