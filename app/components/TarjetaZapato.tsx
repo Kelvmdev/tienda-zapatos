@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { imagenOptimizada } from "../lib/img";
 
 type Props = {
   slug: string;
@@ -16,8 +17,9 @@ export default function TarjetaZapato({ slug, nombre, marca, precio, imagen }: P
     >
       <div className="aspect-square overflow-hidden bg-superficie">
         <img
-          src={imagen}
+          src={imagenOptimizada(imagen, 600)}
           alt={nombre}
+          loading="lazy"
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
       </div>
