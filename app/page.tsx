@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
+import Image from "next/image";
 import Mapa from "./Mapa";
 import { marcasUnicas } from "./lib/marcas";
 import TarjetaZapato from "./components/TarjetaZapato";
@@ -43,10 +44,13 @@ export default function HomePage() {
             </div>
 
             <div className="relative min-h-[18rem] overflow-hidden border-t border-linea bg-grafito-deep md:min-h-0 md:border-l md:border-t-0">
-              <img
-                src="https://res.cloudinary.com/dw26ujhoo/image/upload/f_auto,q_auto,w_1200/v1781022100/pexels-masonamccall-18614839_ncveij.jpg"
-                alt="SOLE. sneakers" fetchPriority="high"
-                className="absolute inset-0 h-full w-full object-cover"
+              <Image
+                src="https://res.cloudinary.com/dw26ujhoo/image/upload/v1781022100/pexels-masonamccall-18614839_ncveij.jpg"
+                alt="SOLE. sneakers"
+                fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </div>
