@@ -44,8 +44,8 @@ export default function HomePage() {
 
             <div className="relative min-h-[18rem] overflow-hidden border-t border-linea bg-grafito-deep md:min-h-0 md:border-l md:border-t-0">
               <img
-                src="https://res.cloudinary.com/dw26ujhoo/image/upload/v1781022100/pexels-masonamccall-18614839_ncveij.jpg"
-                alt="SOLE. sneakers"
+                src="https://res.cloudinary.com/dw26ujhoo/image/upload/f_auto,q_auto,w_1200/v1781022100/pexels-masonamccall-18614839_ncveij.jpg"
+                alt="SOLE. sneakers" fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
