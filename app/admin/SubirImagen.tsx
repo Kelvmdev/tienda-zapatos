@@ -34,9 +34,9 @@ export default function SubirImagen({
       <img
         src={imagenActual}
         alt="Vista previa"
-        className="w-16 h-16 rounded-lg object-cover border border-neutral-700"
+        className="h-16 w-16 rounded-lg border border-linea object-cover"
       />
-      <label className="text-sm text-emerald-400 cursor-pointer hover:underline">
+      <label className="cursor-pointer text-sm text-tenue transition hover:text-hueso">
         {subiendo ? "Subiendo…" : "Cambiar foto"}
         <input
           type="file"

@@ -20,13 +20,22 @@ async function login(formData: FormData) {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white flex items-center justify-center px-6">
-      <form action={login} className="w-full max-w-sm flex flex-col gap-4">
-        <h1 className="text-2xl font-bold">Panel de administración</h1>
-        <input name="clave" type="password" required placeholder="Contraseña"
-          className="bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-2" />
-        <button type="submit"
-          className="bg-emerald-500 text-neutral-950 font-semibold rounded-lg px-4 py-2 hover:bg-emerald-400 transition">
+    <main className="mx-auto flex min-h-[70vh] max-w-sm flex-col justify-center px-6">
+      <h1 className="font-display text-2xl font-bold tracking-tight text-hueso">
+        Panel de administración
+      </h1>
+      <form action={login} className="mt-6 flex flex-col gap-4">
+        <input
+          name="clave"
+          type="password"
+          required
+          placeholder="Contraseña"
+          className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+        />
+        <button
+          type="submit"
+          className="rounded-lg bg-hueso px-4 py-3 text-sm font-medium text-grafito transition duration-150 active:scale-95 hover:opacity-90"
+        >
           Entrar
         </button>
       </form>
