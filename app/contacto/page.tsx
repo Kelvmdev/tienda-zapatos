@@ -35,49 +35,49 @@ export default function ContactoPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white px-6 py-12">
-      <div className="mx-auto max-w-xl">
-        <Link href="/" className="text-sm text-neutral-400 hover:text-white">
-          ← Volver a la tienda
-        </Link>
+    <main className="mx-auto max-w-xl px-6 py-16 md:py-20">
+      <Link href="/" className="text-sm text-tenue transition hover:text-hueso">
+        ← Volver a la tienda
+      </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-2">Contáctanos</h1>
-        <p className="text-neutral-400 mb-8">
-          ¿Dudas sobre un modelo o tu talla? Escríbenos y te respondemos.
-        </p>
+      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-hueso md:text-4xl">
+        Contáctanos
+      </h1>
+      <p className="mt-3 mb-10 text-tenue">
+        ¿Dudas sobre un modelo o tu talla? Escríbenos y te respondemos.
+      </p>
 
-        <form onSubmit={manejarEnvio} className="flex flex-col gap-4">
-          <input
-            type="text"
-            name="nombre"
-            required
-            placeholder="Tu nombre"
-            className="rounded-xl bg-neutral-900 border border-neutral-800 px-4 py-3 outline-none focus:border-neutral-500"
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Tu correo"
-            className="rounded-xl bg-neutral-900 border border-neutral-800 px-4 py-3 outline-none focus:border-neutral-500"
-          />
-          <textarea
-            name="mensaje"
-            required
-            rows={5}
-            placeholder="Tu mensaje"
-            className="rounded-xl bg-neutral-900 border border-neutral-800 px-4 py-3 outline-none focus:border-neutral-500 resize-none"
-          />
-          <button
-            type="submit"
-            disabled={enviando}
-            className="rounded-xl bg-emerald-500 text-neutral-950 font-semibold py-3 transition hover:bg-emerald-400 disabled:opacity-60"
-          >
-            {enviando ? "Enviando…" : "Enviar mensaje"}
-          </button>
-          {error && <p className="text-red-400 text-sm">{error}</p>}
-        </form>
-      </div>
+      <form onSubmit={manejarEnvio} className="flex flex-col gap-4">
+        <input
+          type="text"
+          name="nombre"
+          required
+          placeholder="Tu nombre"
+          className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Tu correo"
+          className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+        />
+        <textarea
+          name="mensaje"
+          required
+          rows={5}
+          placeholder="Tu mensaje"
+          className="resize-none rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+        />
+        <button
+          type="submit"
+          disabled={enviando}
+          className="rounded-lg bg-hueso py-3 text-sm font-medium text-grafito transition duration-150 active:scale-95 hover:opacity-90 disabled:opacity-60 disabled:active:scale-100"
+        >
+          {enviando ? "Enviando…" : "Enviar mensaje"}
+        </button>
+        {error && <p className="text-sm text-red-400">{error}</p>}
+      </form>
     </main>
   );
 }

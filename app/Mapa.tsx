@@ -3,8 +3,7 @@ import { useState } from "react";
 
 const LAT = 6.243358767361717;
 const LON = -75.59254746028859;
-const NOMBRE = "Mi Tienda de Zapatos";
-const ZONA = "Laureles - Estadio, Medellín";
+const NOMBRE = "SOLE.";
 
 export default function Mapa() {
   const [activo, setActivo] = useState(false);
@@ -12,44 +11,58 @@ export default function Mapa() {
   const mapHref = `https://www.google.com/maps/search/?api=1&query=${LAT},${LON}`;
 
   return (
-    <section id="ubicacion" className="w-full bg-neutral-950 text-white px-6 py-12">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">Dónde estamos</h2>
-        <p className="text-neutral-400 mb-8">Visítanos en {ZONA}.</p>
+    <section id="ubicacion" className="border-t border-linea">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <p className="mb-8 text-xs uppercase tracking-[0.24em] text-tenue-2">Visítanos</p>
 
-        <div className="relative w-full h-[60vh] min-h-96 rounded-2xl overflow-hidden border border-neutral-800">
-          <iframe
-            src={mapSrc}
-            title={`Mapa · ${NOMBRE}`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 w-full h-full border-0"
-          />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10">
+          <div>
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-hueso md:text-4xl">
+              Laureles<br />Estadio
+            </h2>
 
-          {!activo && (
-            <button
-              type="button"
-              onClick={() => setActivo(true)}
-              aria-label="Activar el mapa"
-              className="absolute inset-0 flex items-center justify-center bg-transparent cursor-pointer"
-            >
-              <span className="pointer-events-none px-4 py-2 rounded-full bg-black/80 text-white text-sm shadow-lg">
-                Clic para interactuar con el mapa
-              </span>
-            </button>
-          )}
+            <div className="mt-6 space-y-1 text-sm leading-relaxed text-tenue">
+              <p>Carrera 70 #C-23</p>
+              <p>Medellín, Colombia</p>
+            </div>
 
-          
+            <div className="mt-5 space-y-1 text-sm leading-relaxed text-tenue">
+              <p>Lun – Sáb · 10:00 a 20:00</p>
+              <p>+57 300 000 0000</p>
+            </div>
+
             <a
-            href={mapHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-4 left-4 max-w-xs bg-white text-neutral-900 rounded-2xl shadow-2xl p-4 hover:shadow-xl transition"
-          >
-            <h3 className="font-semibold text-lg leading-tight">👟 {NOMBRE}</h3>
-            <p className="text-sm text-neutral-700 mt-1">{ZONA}</p>
-            <p className="text-xs text-emerald-700 font-medium mt-2">Ver en Google Maps &rarr;</p>
-          </a>
+              href={mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex items-center gap-2 rounded-lg border border-borde px-5 py-3 text-sm text-hueso transition duration-150 active:scale-95 hover:bg-superficie"
+            >
+              Cómo llegar <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-linea md:aspect-auto md:min-h-[26rem]">
+            <iframe
+              src={mapSrc}
+              title={`Mapa · ${NOMBRE}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full border-0 [filter:invert(0.92)_hue-rotate(180deg)]"
+            />
+
+            {!activo && (
+              <button
+                type="button"
+                onClick={() => setActivo(true)}
+                aria-label="Activar el mapa"
+                className="absolute inset-0 flex cursor-pointer items-center justify-center bg-transparent"
+              >
+                <span className="pointer-events-none rounded-full bg-[#141414cc] px-4 py-2 text-sm text-hueso shadow-lg">
+                  Clic para interactuar con el mapa
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>

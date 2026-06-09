@@ -69,41 +69,55 @@ export default async function ZapatoPage({
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white px-6 py-12">
+    <main className="mx-auto max-w-6xl px-6 py-12 md:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="mx-auto max-w-4xl">
-        <Link href="/" className="text-emerald-400 hover:underline">← Volver al catálogo</Link>
+      <Link href="/#catalogo" className="text-sm text-tenue transition hover:text-hueso">
+        ← Volver al catálogo
+      </Link>
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-2 md:gap-12">
+        <div className="overflow-hidden rounded-2xl bg-superficie">
           <img
             src={zapato.imagen}
             alt={zapato.nombre}
-            className="w-full aspect-square object-cover rounded-2xl"
+            className="aspect-square w-full object-cover"
           />
+        </div>
 
-          <div>
-            <p className="text-sm text-neutral-400">{zapato.marca}</p>
-            <h1 className="text-3xl font-bold">{zapato.nombre}</h1>
-            <p className="mt-4 text-2xl text-emerald-400 font-bold">
-              ${zapato.precio.toLocaleString("es-CO")} COP
-            </p>
-            <p className="mt-6 text-neutral-300 leading-relaxed">{zapato.descripcion}</p>
+        <div className="flex flex-col">
+          <p className="text-xs uppercase tracking-widest text-tenue-2">{zapato.marca}</p>
+          <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-hueso md:text-4xl">
+            {zapato.nombre}
+          </h1>
+          <p className="mt-4 text-2xl font-medium text-hueso">
+            ${zapato.precio.toLocaleString("es-CO")}
+          </p>
+          <p className="mt-6 leading-relaxed text-tenue">{zapato.descripcion}</p>
 
-            <div className="mt-6">
-              <p className="text-sm text-neutral-400 mb-2">Tallas disponibles:</p>
-              <div className="flex flex-wrap gap-2">
-                {zapato.tallas.map((talla) => (
-                  <span key={talla} className="border border-neutral-700 rounded-lg px-3 py-1 text-sm">
-                    {talla}
-                  </span>
-                ))}
-              </div>
+          <div className="mt-8">
+            <p className="mb-3 text-xs uppercase tracking-widest text-tenue-2">Tallas disponibles</p>
+            <div className="flex flex-wrap gap-2">
+              {zapato.tallas.map((talla) => (
+                <span
+                  key={talla}
+                  className="min-w-11 rounded-lg border border-borde px-3 py-2 text-center text-sm text-hueso"
+                >
+                  {talla}
+                </span>
+              ))}
             </div>
           </div>
+
+          <Link
+            href="/contacto"
+            className="mt-10 inline-block rounded-lg bg-hueso px-7 py-3 text-center text-sm font-medium text-grafito transition duration-150 active:scale-95 hover:opacity-90"
+          >
+            Consultar disponibilidad
+          </Link>
         </div>
       </div>
     </main>

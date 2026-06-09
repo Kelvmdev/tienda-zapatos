@@ -1,30 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Mi Tienda de Zapatos | Tenis al mejor precio",
-    template: "%s | Mi Tienda de Zapatos",
+    default: "SOLE. | Sneakers curados",
+    template: "%s | SOLE.",
   },
   description:
-    "Tienda de tenis y zapatillas deportivas: Nike, Adidas, Puma y más, al mejor precio en Colombia.",
+    "Sneakers curados: Nike, Adidas, Puma y más. Originales y envíos a todo Colombia.",
   openGraph: {
-    title: "Mi Tienda de Zapatos",
-    description: "Tenis y zapatillas deportivas al mejor precio.",
+    title: "SOLE.",
+    description: "Sneakers curados. Originales y envíos a todo Colombia.",
     type: "website",
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,8 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${manrope.variable} ${inter.variable} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
