@@ -5,6 +5,7 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 import { slugMarca } from "../../lib/marcas";
 import { construirMeta } from "../../lib/meta";
+import { conteoProductos } from "../../lib/texto";
 import TarjetaZapato from "../../components/TarjetaZapato";
 
 type Zapato = {
@@ -59,9 +60,10 @@ export default async function MarcaPage({
         <h1 className="font-display text-3xl font-bold tracking-tight text-hueso md:text-4xl">
           {dela[0].marca}
         </h1>
-        <span className="text-sm text-tenue">{dela.length} productos</span>
+        <span className="text-sm text-tenue">{conteoProductos(dela.length)}</span>
       </div>
 
+      <h2 className="sr-only">Productos {dela[0].marca}</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {dela.map((zapato) => (
           <TarjetaZapato key={zapato.slug} {...zapato} />

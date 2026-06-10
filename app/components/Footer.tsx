@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="mt-4 text-xs text-tenue">
               {footer.redes.map((red, i) => (
                 <span key={red.nombre}>
-                  {i > 0 && " · "}
+                  {i > 0 && <span aria-hidden="true"> · </span>}
                   {red.url ? (
                     <a
                       href={red.url}

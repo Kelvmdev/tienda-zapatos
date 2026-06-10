@@ -3,8 +3,9 @@ import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { imagenOptimizada } from "../../lib/img";
+import { imagenOptimizada, imagenOG } from "../../lib/img";
 import { construirMeta } from "../../lib/meta";
+import { siteUrl } from "../../lib/site";
 
 type Zapato = {
   slug: string;
@@ -29,7 +30,7 @@ export async function generateMetadata({
   return construirMeta({
     title: zapato.nombre,
     description: zapato.descripcion,
-    image: imagenOptimizada(zapato.imagen, 1200),
+    image: imagenOG(zapato.imagen),
   });
 }
 
@@ -62,7 +63,7 @@ export default async function ZapatoPage({
       price: zapato.precio,
       priceCurrency: "COP",
       availability: "https://schema.org/InStock",
-      url: `https://tienda-zapatos-gamma.vercel.app/zapatos/${zapato.slug}`,
+      url: `${siteUrl}/zapatos/${zapato.slug}`,
     },
   };
 

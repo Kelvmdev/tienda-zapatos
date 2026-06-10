@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Mapa from "./Mapa";
 import { marcasUnicas } from "./lib/marcas";
+import { conteoProductos } from "./lib/texto";
 import TarjetaZapato from "./components/TarjetaZapato";
 
 type Zapato = {
@@ -78,7 +79,7 @@ export default function HomePage() {
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 font-display text-sm font-bold uppercase tracking-wide text-tenue">
               {marcas.map((m, i) => (
                 <span key={m.slug} className="flex items-center gap-4">
-                  {i > 0 && <span className="font-normal text-linea-suave">/</span>}
+                  {i > 0 && <span aria-hidden="true" className="font-normal text-linea-suave">/</span>}
                   <Link href={`/marcas/${m.slug}`} className="transition hover:text-hueso">
                     {m.nombre}
                   </Link>
@@ -91,7 +92,7 @@ export default function HomePage() {
         <section id="catalogo" className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-8 flex items-baseline justify-between">
             <h2 className="font-display text-2xl font-bold tracking-tight text-hueso">Catálogo</h2>
-            <span className="text-sm text-tenue">{zapatos.length} productos</span>
+            <span className="text-sm text-tenue">{conteoProductos(zapatos.length)}</span>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {zapatos.map((zapato) => (
