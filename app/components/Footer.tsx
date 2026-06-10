@@ -46,8 +46,8 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-widest text-tenue-2">Ayuda</p>
             <div className="mt-3 flex flex-col gap-2 text-sm text-tenue">
-              <span>Envíos</span>
-              <span>Cambios</span>
+              <Link href="/envios" className="transition hover:text-hueso">Envíos</Link>
+              <Link href="/cambios" className="transition hover:text-hueso">Cambios</Link>
             </div>
           </div>
           <div>
@@ -61,7 +61,11 @@ export default function Footer() {
         </div>
         <div className="mt-10 flex flex-col gap-2 border-t border-linea-suave pt-6 text-xs text-tenue-2 sm:flex-row sm:items-center sm:justify-between">
           <span>{footer.copyright}</span>
-          <span>Términos · Privacidad</span>
+          <span className="flex items-center gap-2">
+            <Link href="/terminos" className="transition hover:text-hueso">Términos</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/privacidad" className="transition hover:text-hueso">Privacidad</Link>
+          </span>
         </div>
       </div>
     </footer>
