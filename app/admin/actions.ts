@@ -14,6 +14,37 @@ type Zapato = {
   tallas: number[];
 };
 
+type Site = {
+  hero: {
+    eyebrow: string;
+    titulo: string;
+    subtitulo: string;
+    ctaTexto: string;
+    imagen: string;
+    imagenAlt: string;
+  };
+  marcas: { titulo: string };
+  confianza: { titulo: string; detalle: string }[];
+  ubicacion: {
+    eyebrow: string;
+    nombre: string;
+    direccion: string;
+    ciudad: string;
+    horario: string;
+    telefono: string;
+    ctaTexto: string;
+    lat: number;
+    lon: number;
+    zoom: number;
+  };
+  footer: {
+    tagline: string;
+    redes: { nombre: string; url: string }[];
+    copyright: string;
+    contacto: { direccion: string; email: string; telefono: string };
+  };
+};
+
 async function commitData(contenido: string) {
   const owner = process.env.GITHUB_OWNER;
   const repo = process.env.GITHUB_REPO;
@@ -50,7 +81,7 @@ async function commitData(contenido: string) {
   if (!putRes.ok) throw new Error(`GitHub rechazó: ${putRes.status} ${await putRes.text()}`);
 }
 
-export async function guardarTodo(zapatos: Zapato[]) {
+export async function guardarTodo(site: Site, zapatos: Zapato[]) {
   const limpios = zapatos.map((z) => ({
     slug: z.slug,
     nombre: String(z.nombre ?? "").trim(),
@@ -61,7 +92,9 @@ export async function guardarTodo(zapatos: Zapato[]) {
     tallas: Array.isArray(z.tallas) ? z.tallas : [],
   }));
 
-  await commitData(JSON.stringify({ zapatos: limpios }, null, 2));
+  // Escribimos el contenido COMPLETO (site + zapatos) en un solo commit.
+  // El panel ya tiene el objeto entero en estado, así que no hace falta merge.
+  await commitData(JSON.stringify({ site, zapatos: limpios }, null, 2));
   revalidatePath("/");
   revalidatePath("/admin");
 }

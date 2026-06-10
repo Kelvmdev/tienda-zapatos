@@ -12,7 +12,38 @@ type Zapato = {
   tallas: number[];
 };
 
-async function leerData(): Promise<{ zapatos: Zapato[] }> {
+type Site = {
+  hero: {
+    eyebrow: string;
+    titulo: string;
+    subtitulo: string;
+    ctaTexto: string;
+    imagen: string;
+    imagenAlt: string;
+  };
+  marcas: { titulo: string };
+  confianza: { titulo: string; detalle: string }[];
+  ubicacion: {
+    eyebrow: string;
+    nombre: string;
+    direccion: string;
+    ciudad: string;
+    horario: string;
+    telefono: string;
+    ctaTexto: string;
+    lat: number;
+    lon: number;
+    zoom: number;
+  };
+  footer: {
+    tagline: string;
+    redes: { nombre: string; url: string }[];
+    copyright: string;
+    contacto: { direccion: string; email: string; telefono: string };
+  };
+};
+
+async function leerData(): Promise<{ zapatos: Zapato[]; site: Site }> {
   const owner = process.env.GITHUB_OWNER;
   const repo = process.env.GITHUB_REPO;
   const branch = process.env.GITHUB_BRANCH;
@@ -41,7 +72,7 @@ export default async function AdminPage() {
 
   return (
     <main className="min-h-screen px-6 py-12">
-      <PanelClient zapatosIniciales={data.zapatos} />
+      <PanelClient zapatosIniciales={data.zapatos} siteInicial={data.site} />
     </main>
   );
 }
