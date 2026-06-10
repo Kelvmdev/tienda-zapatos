@@ -13,7 +13,15 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  // Necesario para que og:image/twitter:image se emitan como URLs absolutas.
+  metadataBase: new URL(siteUrl),
   title: {
     default: "SOLE. | Sneakers curados",
     template: "%s | SOLE.",
@@ -24,6 +32,11 @@ export const metadata: Metadata = {
     title: "SOLE.",
     description: "Sneakers curados. Originales y envíos a todo Colombia.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SOLE.",
+    description: "Sneakers curados. Originales y envíos a todo Colombia.",
   },
 };
 
