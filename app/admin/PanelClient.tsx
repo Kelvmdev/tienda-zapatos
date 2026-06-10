@@ -414,7 +414,7 @@ export default function PanelClient({
               rows={2}
             />
 
-            <p className="mt-1 text-xs uppercase tracking-widest text-tenue-3">Redes</p>
+            <p className="mt-1 text-xs uppercase tracking-widest text-tenue-2">Redes</p>
             {site.footer.redes.map((r, i) => (
               <div key={i} className="flex flex-col gap-3 rounded-lg border border-linea bg-grafito p-3">
                 <div className="flex items-center justify-between">
@@ -441,7 +441,7 @@ export default function PanelClient({
 
             <Campo label="Copyright" value={site.footer.copyright} onChange={(v) => patchFooter({ copyright: v })} />
 
-            <p className="mt-1 text-xs uppercase tracking-widest text-tenue-3">Contacto</p>
+            <p className="mt-1 text-xs uppercase tracking-widest text-tenue-2">Contacto</p>
             <Campo
               label="Dirección"
               value={site.footer.contacto.direccion}

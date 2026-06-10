@@ -48,27 +48,38 @@ export default function ContactoPage() {
       </p>
 
       <form onSubmit={manejarEnvio} className="flex flex-col gap-4">
-        <input
-          type="text"
-          name="nombre"
-          required
-          placeholder="Tu nombre"
-          className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
-        />
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Tu correo"
-          className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
-        />
-        <textarea
-          name="mensaje"
-          required
-          rows={5}
-          placeholder="Tu mensaje"
-          className="resize-none rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
-        />
+        <label className="contents">
+          <span className="sr-only">Tu nombre</span>
+          <input
+            type="text"
+            name="nombre"
+            required
+            autoComplete="name"
+            placeholder="Tu nombre"
+            className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+          />
+        </label>
+        <label className="contents">
+          <span className="sr-only">Tu correo</span>
+          <input
+            type="email"
+            name="email"
+            required
+            autoComplete="email"
+            placeholder="Tu correo"
+            className="rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+          />
+        </label>
+        <label className="contents">
+          <span className="sr-only">Tu mensaje</span>
+          <textarea
+            name="mensaje"
+            required
+            rows={5}
+            placeholder="Tu mensaje"
+            className="resize-none rounded-lg border border-linea bg-grafito-deep px-4 py-3 text-sm text-hueso outline-none transition placeholder:text-tenue-2 focus:border-borde"
+          />
+        </label>
         <button
           type="submit"
           disabled={enviando}

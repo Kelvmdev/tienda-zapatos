@@ -9,7 +9,7 @@
   --color-linea-suave: #2a2a2a;
   --color-hueso: #fafafa;
   --color-tenue: #9c9c9c;
-  --color-tenue-2: #6e6e6e;
+  --color-tenue-2: #8a8a8a;
   --color-tenue-3: #5c5c5c;
   --color-borde: #4a4a4a;
 }
@@ -24,4 +24,12 @@ body {
   color: var(--color-hueso);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Foco de teclado visible (accesibilidad AA). Sin @layer, para que prevalezca
+   sobre utilidades como `outline-none` igual que la regla de `body`. Cubre
+   links, botones e inputs de todo el sitio con un anillo hueso desprendido. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-hueso);
+  outline-offset: 2px;
 }

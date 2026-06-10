@@ -72,7 +72,7 @@ export default function HomePage() {
 
         <section className="border-b border-linea">
           <div className="mx-auto max-w-7xl px-6 py-6">
-            <p className="text-center text-xs uppercase tracking-[0.2em] text-tenue-3">
+            <p className="text-center text-xs uppercase tracking-[0.2em] text-tenue-2">
               {site.marcas.titulo}
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 font-display text-sm font-bold uppercase tracking-wide text-tenue">

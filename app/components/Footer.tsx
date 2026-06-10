@@ -37,21 +37,21 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-widest text-tenue-3">Tienda</p>
+            <p className="text-xs uppercase tracking-widest text-tenue-2">Tienda</p>
             <div className="mt-3 flex flex-col gap-2 text-sm text-tenue">
               <Link href="/#catalogo" className="transition hover:text-hueso">Catálogo</Link>
               <Link href="/contacto" className="transition hover:text-hueso">Contacto</Link>
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-widest text-tenue-3">Ayuda</p>
+            <p className="text-xs uppercase tracking-widest text-tenue-2">Ayuda</p>
             <div className="mt-3 flex flex-col gap-2 text-sm text-tenue">
               <span>Envíos</span>
               <span>Cambios</span>
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-widest text-tenue-3">Contacto</p>
+            <p className="text-xs uppercase tracking-widest text-tenue-2">Contacto</p>
             <div className="mt-3 flex flex-col gap-2 text-sm text-tenue">
               <span>{footer.contacto.direccion}</span>
               <span>{footer.contacto.email}</span>
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex flex-col gap-2 border-t border-linea-suave pt-6 text-xs text-tenue-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-linea-suave pt-6 text-xs text-tenue-2 sm:flex-row sm:items-center sm:justify-between">
           <span>{footer.copyright}</span>
           <span>Términos · Privacidad</span>
         </div>
