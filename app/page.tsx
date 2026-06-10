@@ -16,10 +16,24 @@ type Zapato = {
   tallas: number[];
 };
 
+type Site = {
+  hero: {
+    eyebrow: string;
+    titulo: string;
+    subtitulo: string;
+    ctaTexto: string;
+    imagen: string;
+    imagenAlt: string;
+  };
+  marcas: { titulo: string };
+  confianza: { titulo: string; detalle: string }[];
+};
+
 export default function HomePage() {
   const ruta = path.join(process.cwd(), "content", "data.json");
   const data = JSON.parse(fs.readFileSync(ruta, "utf-8"));
   const zapatos: Zapato[] = data.zapatos;
+  const site: Site = data.site;
   const marcas = marcasUnicas(zapatos);
 
   return (
@@ -28,25 +42,25 @@ export default function HomePage() {
         <section className="border-b border-linea">
           <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
             <div className="px-6 py-20 md:py-28">
-              <p className="mb-5 text-xs uppercase tracking-[0.24em] text-tenue-2">Colección 2026</p>
-              <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight text-hueso">
-                Cada par,<br />una declaración.
+              <p className="mb-5 text-xs uppercase tracking-[0.24em] text-tenue-2">{site.hero.eyebrow}</p>
+              <h1 className="whitespace-pre-line font-display text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight text-hueso">
+                {site.hero.titulo}
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-tenue">
-                Sneakers curados. Sin ruido, solo forma. El producto manda.
+                {site.hero.subtitulo}
               </p>
               <Link
                 href="#catalogo"
                 className="mt-8 inline-block rounded-lg bg-hueso px-7 py-3 text-sm font-medium text-grafito transition duration-150 active:scale-95 hover:opacity-90"
               >
-                Ver catálogo
+                {site.hero.ctaTexto}
               </Link>
             </div>
 
             <div className="relative min-h-[18rem] overflow-hidden border-t border-linea bg-grafito-deep md:min-h-0 md:border-l md:border-t-0">
               <Image
-                src="https://res.cloudinary.com/dw26ujhoo/image/upload/v1781022100/pexels-masonamccall-18614839_ncveij.jpg"
-                alt="SOLE. sneakers"
+                src={site.hero.imagen}
+                alt={site.hero.imagenAlt}
                 fill
                 priority
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -59,7 +73,7 @@ export default function HomePage() {
         <section className="border-b border-linea">
           <div className="mx-auto max-w-7xl px-6 py-6">
             <p className="text-center text-xs uppercase tracking-[0.2em] text-tenue-3">
-              Las marcas que llevamos
+              {site.marcas.titulo}
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 font-display text-sm font-bold uppercase tracking-wide text-tenue">
               {marcas.map((m, i) => (
@@ -88,18 +102,12 @@ export default function HomePage() {
 
         <section className="border-y border-linea">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-px bg-linea sm:grid-cols-3">
-            <div className="bg-grafito-deep px-6 py-8 text-center">
-              <p className="font-display text-sm font-medium text-hueso">Envíos a todo Colombia</p>
-              <p className="mt-1 text-xs text-tenue-2">2–4 días hábiles</p>
-            </div>
-            <div className="bg-grafito-deep px-6 py-8 text-center">
-              <p className="font-display text-sm font-medium text-hueso">100% originales</p>
-              <p className="mt-1 text-xs text-tenue-2">Garantía verificada</p>
-            </div>
-            <div className="bg-grafito-deep px-6 py-8 text-center">
-              <p className="font-display text-sm font-medium text-hueso">Pago seguro</p>
-              <p className="mt-1 text-xs text-tenue-2">Múltiples métodos</p>
-            </div>
+            {site.confianza.map((item) => (
+              <div key={item.titulo} className="bg-grafito-deep px-6 py-8 text-center">
+                <p className="font-display text-sm font-medium text-hueso">{item.titulo}</p>
+                <p className="mt-1 text-xs text-tenue-2">{item.detalle}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>
