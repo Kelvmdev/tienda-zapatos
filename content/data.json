@@ -48,5 +48,49 @@
         44
       ]
     }
-  ]
+  ],
+  "site": {
+    "hero": {
+      "eyebrow": "Colección 2026",
+      "titulo": "Cada par,\nuna declaración.",
+      "subtitulo": "Sneakers curados. Sin ruido, solo forma. El producto manda.",
+      "ctaTexto": "Ver catálogo",
+      "imagen": "https://res.cloudinary.com/dw26ujhoo/image/upload/v1781022100/pexels-masonamccall-18614839_ncveij.jpg",
+      "imagenAlt": "SOLE. sneakers"
+    },
+    "marcas": {
+      "titulo": "Las marcas que llevamos"
+    },
+    "confianza": [
+      { "titulo": "Envíos a todo Colombia", "detalle": "2–4 días hábiles" },
+      { "titulo": "100% originales", "detalle": "Garantía verificada" },
+      { "titulo": "Pago seguro", "detalle": "Múltiples métodos" }
+    ],
+    "ubicacion": {
+      "eyebrow": "Visítanos",
+      "nombre": "Laureles\nEstadio",
+      "direccion": "Carrera 70 #C-23",
+      "ciudad": "Medellín, Colombia",
+      "horario": "Lun – Sáb · 10:00 a 20:00",
+      "telefono": "+57 300 000 0000",
+      "ctaTexto": "Cómo llegar",
+      "lat": 6.243358767361717,
+      "lon": -75.59254746028859,
+      "zoom": 16
+    },
+    "footer": {
+      "tagline": "Sneakers curados.\nMedellín, 2026.",
+      "redes": [
+        { "nombre": "Instagram", "url": "" },
+        { "nombre": "TikTok", "url": "" },
+        { "nombre": "WhatsApp", "url": "" }
+      ],
+      "copyright": "© 2026 SOLE. Todos los derechos reservados.",
+    "contacto": {
+      "direccion": "Carrera 70 #C-23",
+      "email": "hola@sole.co",
+      "telefono": "+57 300 000 0000"
+    }
+    }
+  }
 }
