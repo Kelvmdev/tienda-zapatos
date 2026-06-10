@@ -3,6 +3,8 @@ import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
+import { imagenOptimizada } from "../../lib/img";
+import { construirMeta } from "../../lib/meta";
 
 type Zapato = {
   slug: string;
@@ -24,15 +26,11 @@ export async function generateMetadata({
   const data = JSON.parse(fs.readFileSync(ruta, "utf-8")) as { zapatos: Zapato[] };
   const zapato = data.zapatos.find((z) => z.slug === slug);
   if (!zapato) return { title: "Zapato no encontrado" };
-  return {
+  return construirMeta({
     title: zapato.nombre,
     description: zapato.descripcion,
-    openGraph: {
-      title: zapato.nombre,
-      description: zapato.descripcion,
-      images: [zapato.imagen],
-    },
-  };
+    image: imagenOptimizada(zapato.imagen, 1200),
+  });
 }
 
 export default async function ZapatoPage({
@@ -82,7 +80,7 @@ export default async function ZapatoPage({
       <div className="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-2 md:gap-12">
         <div className="overflow-hidden rounded-2xl bg-superficie">
           <img
-            src={zapato.imagen}
+            src={imagenOptimizada(zapato.imagen, 1000)}
             alt={zapato.nombre}
             className="aspect-square w-full object-cover"
           />

@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
 import { slugMarca } from "../../lib/marcas";
+import { construirMeta } from "../../lib/meta";
 import TarjetaZapato from "../../components/TarjetaZapato";
 
 type Zapato = {
@@ -30,10 +31,10 @@ export async function generateMetadata({
   const { marca } = await params;
   const encontrado = leerZapatos().find((z) => slugMarca(z.marca) === marca);
   if (!encontrado) return { title: "Marca no encontrada" };
-  return {
+  return construirMeta({
     title: encontrado.marca,
     description: `Todos los tenis ${encontrado.marca} disponibles en SOLE.`,
-  };
+  });
 }
 
 export default async function MarcaPage({
